@@ -43,6 +43,11 @@ app.use(function (req, res, next) {
 //connect to MongoDB database
 mongoose.connect('mongodb://localhost/meanapp'); //telling app to connect to mongodb; localhost means I'm running it on my computer (my computer is the server), meanapp is name of database
 mongoose.connection.once('open', function() {
+
+  //Load the models
+  //Assigning to app.models allows for dependency injection into controllers
+  app.models = require('./models/index');
+
   console.log("This is Doctor Frasier Crane. I'm listening on port 3000...");
   app.listen(3000);
 });
