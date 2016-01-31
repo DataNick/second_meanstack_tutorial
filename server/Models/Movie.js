@@ -1,0 +1,1 @@
+var mongoose = require('mongoose'); //gives us an interface into mongodb
