@@ -48,6 +48,12 @@ mongoose.connection.once('open', function() {
   //Assigning to app.models allows for dependency injection into controllers
   //Models don't know anything about controllers
   app.models = require('./models/index');
+  //Load the routes
+  var routes = require('./routes');
+
+  _.each(routes, function (controller, route) {
+    app.use(route, controller(app, route));
+  });
 
   console.log("This is Doctor Frasier Crane. I'm listening on port 3000...");
   app.listen(3000);
