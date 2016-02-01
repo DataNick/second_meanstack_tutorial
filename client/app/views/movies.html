@@ -1,1 +1,14 @@
 <p>This is the movies view.</p>
+<table class = "table table-striped">
+  <thead>
+    <th>TITLE</th>
+    <th>URL</th>
+  </thead>
+  <tbody>
+
+    <tr ng-repeat = "movie in movies">
+      <td>{{movie.title}}</td> <!-- object notation -->
+      <td>{{movie.url}}</td>
+    </tr>
+  </tbody>
+</table>
