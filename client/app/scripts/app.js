@@ -10,29 +10,25 @@
  */
 angular
   .module('clientApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
     'ngRoute',
-    'ngSanitize',
-    'ngTouch'
+    'restangular'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, RestangularProvider) {
+
+    RestangularProvider.setBaseUrl('http://localhost:3000');
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        controller: 'MainCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+        controller: 'AboutCtrl'
       })
       .when('/movies', {
         templateUrl: 'views/movies.html',
-        controller: 'MoviesCtrl',
-        controllerAs: 'movies'
+        controller: 'MoviesCtrl'
       })
       .otherwise({
         redirectTo: '/'
