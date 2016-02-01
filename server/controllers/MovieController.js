@@ -4,6 +4,7 @@
 //node-restful takes a mongoose model and converts it into a REST API
 //Just build the model and leave the rest to node-restful to build up CRUD functionality
 //The model defines the REST API
+//Register mongoose resources and default RESTful routes are automatically made
 
 var restful = require('node-restful');
 
@@ -23,4 +24,6 @@ module.exports = function (app, route) {
     next();
   };
 };
+//Registers the following routes: GET /route, PUT /route, POST /route, DELETE /route, GET /resource/:id
+//restful.model returns a mongoose model allowing for interaction similar to new Resource, Resource.findById
 
